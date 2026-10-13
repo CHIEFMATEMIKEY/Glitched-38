@@ -1,0 +1,718 @@
+meta:
+  engine: 4.1.0
+
+units:
+  angle: 35
+  Spacing: 60
+  Spread: u+.5
+  Vertical_spacing: u-.5
+points:
+  key.tags:
+    - key
+  zones:
+    matrix:
+      anchor.shift: [100,-100] # Fix KiCad placement
+      columns:
+        pinky:
+          key:
+            spread: Spread
+            splay: 0
+            origin: [0, -17]
+          rows:
+            bottom:
+              bind: [5, 0, 0, 0]
+              column_net: P7
+            home:
+              bind: [0, 12, 0, 0]
+              column_net: P6
+            top:
+              bind: [0, 8, 5, 0]
+              column_net: P5 
+        ring:
+          key:
+            spread: Spread
+            stagger: Vertical_spacing*.75
+            splay: 0
+            origin: [0, -17]
+          rows:
+            bottom:
+              bind: [0, 0, 2, 10]
+              column_net: P4
+            home:
+              bind: [5, 0, 5, 0]
+              column_net: P3
+            top:
+              bind: [0, 6, 0, 0]
+              column_net: P0
+        middle:
+          key:
+
+            spread: Spread
+            stagger: Vertical_spacing*.75
+            splay: 0
+            origin: [0, -17]
+          rows:
+            bottom:
+              bind: [0, 10, 0, 5]
+              column_net: P1
+            home:
+              bind: 5
+              column_net: P19
+            top:
+              bind: [0, 0, 0, 0]
+              column_net: P18
+        index:
+          key:
+            spread: Spread
+            stagger: -Vertical_spacing/2
+            splay: 0
+            origin: [0, -17]
+          rows:
+            bottom:
+              bind: [0, 5, 0, 0]
+              column_net: P15
+            home:
+              bind: [5, 0, 5, 0]
+              column_net: P14
+            top:
+              bind: [0, 0, 0, 6]
+              column_net: P16
+        inner:
+          key:
+            spread: Spread
+            stagger: -Vertical_spacing/4
+            origin: [0, -17]
+          rows: 
+            bottom:
+              bind: [5, 19, 20, 2]
+              column_net: P10
+            home:
+              bind: [0, 27, 0, 5]
+              column_net: P20
+            top:
+              bind: [0, 0, 5, 5]
+              column_net: P21
+      rows:
+        bottom:
+          padding: Vertical_spacing
+        home:
+          padding: Vertical_spacing
+        top:
+    thumb:
+      anchor:
+        ref: matrix_middle_bottom
+        shift: [4.75,-34]
+      columns:
+        first:
+          key:
+            splay: 0
+          rows:
+            only:
+              column_net: P8
+              bind: [10, 1, 0, 70]
+        second:
+          key:
+            spread: Spread
+            splay: -10
+            origin: [-9, -9.5]
+          rows:
+            only:
+              column_net: P9
+              bind: [0, 0, 0, 5]
+        third:
+          key:
+            spread: Spread
+            splay: -10
+            origin: [-9, -9.5]
+          rows:
+            only:
+              column_net: P9
+              bind: [0, 0, 0, 5]
+        fourth:
+          key:
+            rotate: 0
+            spread: Spread
+            splay: -15
+            origin: [-10, -17]
+            tags:
+              - key_1_5u
+          rows:
+            only:
+              column_net: P9
+              bind: [0, 0, 0, 5]
+      rows:
+        only:
+          padding: Vertical_spacing
+      key:
+        footprints:
+    mcu:
+      key.tags:
+        - helper
+      anchor:
+        - ref: matrix_inner_top
+          shift: [(Spacing/2)+2,0]
+          rotate: angle/2
+    display:
+      key.tags:
+        - helper
+      anchor:
+        - ref: mcu
+          shift: [0,-3.5]
+    battery:
+      key.tags:
+        - helper
+      anchor:
+        - ref: mcu
+          shift: [0,-30]
+
+    plate_screw_1:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_pinky_top
+            shift: [9.5,-9.25]
+
+
+    plate_screw_2:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_ring_top
+            shift: [9.5,-9.25]
+    plate_screw_3:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_middle_top
+            shift: [9.5,-9.25]
+    plate_screw_4:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_index_top
+            shift: [9.5,-9.25]
+    plate_screw_5:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: thumb_first_only
+          - ref: thumb_second_only
+            shift: [-1,u/2]
+    plate_screw_6:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: thumb_second_only
+          - ref: thumb_third_only
+            shift: [-1,u/2]
+    plate_screw_7:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: thumb_third_only
+          - ref: thumb_fourth_only
+            shift: [-.9,u/4]
+    plate_screw_8:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_inner_top
+            shift: [15,2]
+    plate_screw_9:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_inner_bottom
+            shift: [14.8,-7.25]
+    plate_screw_10:
+      key.tags:
+        - helper
+        - glitch_screw
+      anchor: 
+        aggregate.parts:
+          - ref: thumb_fourth_only
+            shift: [7.75,20]
+    Magnet_1:
+      key.tags:
+        - helper
+        - glitch_magnet
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_pinky_top
+            shift: [0,0]
+    Magnet_2:
+      key.tags:
+        - helper
+        - glitch_magnet
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_pinky_bottom
+            shift: [0,0]
+    Magnet_3:
+      key.tags:
+        - helper
+        - glitch_magnet
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_inner_top
+            shift: [0,0]
+    Magnet_4:
+      key.tags:
+        - helper
+        - glitch_magnet
+      anchor: 
+        aggregate.parts:
+          - ref: matrix_inner_bottom
+            shift: [0,0]
+    Magnet_5:
+      key.tags:
+        - helper
+        - glitch_magnet
+      anchor: 
+        aggregate.parts:
+          - ref: thumb_first_only
+            shift: [0,0]
+    Magnet_6:
+      key.tags:
+        - helper
+        - glitch_magnet
+      anchor: 
+        aggregate.parts:
+          - ref: thumb_fourth_only
+            shift: [0,0]
+
+
+  rotate: -angle/2
+  mirror:
+    ref: matrix_inner_top
+    distance: Spacing
+
+
+outlines:
+  _keycaps:
+    - what: rectangle
+      where: [key]
+      size: [18,17]
+      fillet: 2
+    - what: rectangle
+      where: [key_1_5u]
+      size: [18,18*1.5]
+      fillet: 3
+  _wide_keyslots:
+    - what: rectangle
+      where: [key]
+      size: [14.5,15.5]
+    - what: rectangle
+      where: [key_1_5u]
+      size: [14.5,15.5]
+  _screw_holes:
+    - what: circle
+      where: [glitch_screw]
+      radius: 2.05/2
+  _bore_holes:
+    - what: circle
+      where: [glitch_screw]
+      radius: 2.05
+  _magnet_holes:
+    - what: circle
+      where: [glitch_magnet]
+      radius: 6.2/2
+
+  _plate:
+    - what: polygon
+      points:
+        - ref: matrix_pinky_top
+          shift: [-u/2,u/2]
+        - ref: matrix_pinky_top
+          shift: [u/2,u/2]
+        - ref: matrix_ring_top
+          shift: [-u/2,u/2]
+        - ref: matrix_ring_top
+          shift: [u/2,u/2]
+        - ref: matrix_middle_top
+          shift: [-u/2,u/2]
+        - ref: matrix_middle_top
+          shift: [u/2,u/2]
+        - ref: matrix_index_top
+          shift: [-u/2,u/2]
+        - ref: matrix_index_top
+          shift: [u/2,u/2]
+        - ref: matrix_inner_top
+          shift: [-u/2,u/2]
+        - ref: matrix_inner_top
+          shift: [u/2,u/2]
+        - ref: mirror_matrix_inner_top
+          shift: [u/2,u/2]
+        - ref: mirror_matrix_inner_top
+          shift: [-u/2,u/2]    
+        - ref: mirror_matrix_index_top
+          shift: [u/2,u/2]
+        - ref: mirror_matrix_index_top
+          shift: [-u/2,u/2]    
+        - ref: mirror_matrix_middle_top
+          shift: [u/2,u/2]    
+        - ref: mirror_matrix_middle_top
+          shift: [-u/2,u/2] 
+        - ref: mirror_matrix_ring_top
+          shift: [u/2,u/2]
+        - ref: mirror_matrix_ring_top
+          shift: [-u/2,u/2]   
+        - ref: mirror_matrix_pinky_top
+          shift: [u/2,u/2]
+        - ref: mirror_matrix_pinky_top
+          shift: [-u/2,u/2]
+        - ref: mirror_matrix_pinky_bottom
+          shift: [-u/2,-u/2]
+        - ref: mirror_matrix_pinky_bottom
+          shift: [u/2,-u/2]
+#        - ref: mirror_thumb_first_only
+#          shift: [-u/2,u/4]
+        - ref: mirror_thumb_first_only
+          shift: [-u/2,-u/2]
+        - ref: mirror_thumb_second_only
+          shift: [-u/2,-u/2]
+        - ref: mirror_thumb_third_only
+          shift: [-u/2,-u/2]
+        - ref: mirror_thumb_third_only
+          shift: [u/2,-u/2]
+        - ref: mirror_thumb_fourth_only
+          shift: [-u/2+1,-(u*1.5)/2]
+        - ref: mirror_thumb_fourth_only
+          shift: [u/2,-(u*1.5)/2]
+        - ref: mirror_thumb_fourth_only
+          shift: [u/2,(u*1.5)/2]
+        - ref: thumb_fourth_only
+          shift: [u/2,(u*1.5)/2]
+        - ref: thumb_fourth_only
+          shift: [u/2,-(u*1.5)/2]
+        - ref: thumb_fourth_only
+          shift: [-u/2+1,-(u*1.5)/2]
+        - ref: thumb_third_only
+          shift: [u/2,-u/2]
+        - ref: thumb_third_only
+          shift: [-u/2,-u/2]
+        - ref: thumb_second_only
+          shift: [-u/2,-u/2]
+        - ref: thumb_first_only
+          shift: [-u/2,-u/2]
+#        - ref: thumb_first_only
+#          shift: [-u/2,u/4]
+        - ref: matrix_pinky_bottom
+          shift: [u/2,-u/2]
+        - ref: matrix_pinky_bottom
+          shift: [-u/2,-u/2]
+  _first:
+    - what: outline
+      name: _plate
+      fillet: 1
+  _second:
+    - what: outline
+      name: _first
+      fillet: 2
+  _third:
+    - what: outline
+      name: _second
+      fillet: 3
+  _outer_center_pad:
+    - what: polygon
+      points:
+        - ref: matrix_inner_top
+          shift: [u/1.75,u/4]
+        - ref: mirror_matrix_inner_top
+          shift: [u/1.75,u/4]
+        - ref: mirror_matrix_inner_bottom
+          shift: [u/1.75,-u/2]
+        - ref: mirror_thumb_fourth_only
+          shift: [u/2,(u*1.5)/1.75]
+        - ref: thumb_fourth_only
+          shift: [u/2,(u*1.5)/1.75]
+        - ref: matrix_inner_bottom
+          shift: [u/1.75,-u/2]
+  _outercenterfillet:
+    - what: outline
+      name: _outer_center_pad
+      fillet: 3
+  _center_piece:
+    - what: outline
+      name: _outercenterfillet
+    - what: outline
+      name: _screw_holes
+      operation: subtract
+  _inner_center_hole:
+    - what: outline
+      name: _outer_center_pad
+      expand: -6.5
+  _inner_center_fillet:
+    - what: outline
+      name: _inner_center_hole
+      fillet: 3
+  _bottom:
+    - what: outline
+      name: _third
+      expand: 1.2
+      fillet: 3
+
+  _bored_holes:
+    - what: outline
+      name: _bore_holes
+
+  _case_plate:
+    - what: outline
+      name: _bottom
+      expand: 3.5
+      fillet: 3
+  _case_plate_inner:
+    - what: outline
+      name: _bottom
+      expand: .3
+      fillet: 0
+  _case_bottom_no_magnet:
+    - what: outline
+      name: _case_plate
+
+    - what: outline
+      name: _screw_holes
+      operation: subtract
+
+
+  case_bottom_plate:
+    - what: outline
+      name: _case_plate
+    - what: outline
+      name: _magnet_holes
+      operation: subtract
+    - what: outline
+      name: _screw_holes
+      operation: subtract
+    - what: outline
+      name: _case_plate_inner
+      operation: stack
+    - what: outline
+      name: _bored_holes
+      operation: stack
+
+  _case_wall:
+    - what: outline
+      name: _case_plate
+    - what: outline
+      name: _case_plate_inner
+      operation: stack
+
+  _key_slot_negative:
+    - what: rectangle
+      where: [key,key_1_5u]
+      size: 14
+  _mcu1:
+    - what: rectangle
+      where: [mcu]
+      size: [17.78,33]
+      fillet: 1
+  _display1:
+    - what: rectangle
+      where: [display]
+      size: [14,36]
+      fillet: 0.5
+  _battery:
+    - what: rectangle
+      where: [battery]
+      size: [50,30]
+  _key_snap:
+    - what: outline
+      name: _bottom
+      expand: 1.2
+    - what: outline
+      name: _wide_keyslots
+      operation: subtract
+  prototype_plate:
+    - what: outline
+      name: _bottom
+    - what: outline
+      name: _key_slot_negative
+      operation: subtract
+    - what: outline
+      name: _screw_holes
+      operation: subtract
+    - what: outline
+      name: _inner_center_fillet
+      operation: subtract
+  _snap_plate:
+    - what: outline
+      name: _bottom
+    - what: outline
+      name: _wide_keyslots
+      operation: subtract
+    - what: outline
+      name: _screw_holes
+      operation: subtract
+    - what: outline
+      name: _inner_center_fillet
+      operation: subtract
+  preview:
+    - what: outline
+      name: prototype_plate
+    - what: outline
+      name: _keycaps
+      operation: stack
+    - what: outline
+      name: _mcu1
+      operation: stack
+    - what: outline
+      name: _display1
+      operation: stack
+    - what: outline
+      name: _battery
+      operation: stack
+    - what: outline
+      name: _outercenterfillet
+      operation: stack
+    - what: outline
+      name: case_bottom_plate
+      operation: stack
+    - what: outline
+      name: _bored_holes
+      operation: stack
+
+
+pcbs:
+  Gliched38:
+    template: kicad8
+    outlines:
+      main:
+        outline: _bottom
+    footprints:
+      choc_hotswap:
+        what: ceoloide/switch_mx
+        where: [key,key_1_5u]
+        params:
+          from: =column_net
+          to: =row
+          include_corner_marks: true
+          include_keycap: true
+          keycap_height: 16.5
+          keycap_width: 17.5
+          reversible: true
+          solder: true
+          hotswap: true
+
+          outer_pad_width_front: 2.0
+          outer_pad_width_back: 2.0
+      mcu:
+        what: ceoloide/mcu_nice_nano
+        where: 
+        - ref: matrix_inner_top
+          shift: [12,0]
+          rotate: 20
+        params:
+          reverse_mount: true
+          reversible: true
+          only_required_jumpers: true
+        adjust:
+          shift: [19, -8.5]
+
+      jlcpcb_order_number_text:
+        what: ceoloide/utility_text
+        where: matrix_inner_bottom
+        params:
+          text: JLCJLCJLCJLC
+          reversible: true
+        adjust:
+          shift: [0,-u/2+1.8 ]
+      ergogen_logo:
+        what: ceoloide/utility_ergogen_logo
+        where: matrix_middle_bottom
+        params:
+          scale: 2.5
+          reversible: true
+        adjust:
+          shift: [0,-1u]  
+cases:
+  glitched38_plate:
+    - what: outline
+      name: prototype_plate
+      extrude: 1.45
+    - what: outline
+      name: _snap_plate
+      operation: add
+      extrude: 4
+#    - what: outline
+#      name: _bored_holes
+#      operation: subtract
+#      extrude: 2
+
+  glitched38_centerpiece:
+    - what: outline
+      name: _center_piece
+      extrude: 4
+
+
+  glitched38_case:
+    - what: outline
+      name: _case_bottom_no_magnet
+      extrude: 0.4
+    - what: outline
+      name: case_bottom_plate
+      operation: add
+      extrude: 3.2
+    - what: outline
+      name: _case_wall
+      operation: add
+      extrude: 16
+
+#    - what: outline
+#      name: _key_snap
+#      extrude: 1.6 + 5
+
+#  _mounting_plate:
+#    - what: hull
+#      points: 
+#        - matrix_pinky_bottom
+#        - matrix_pinky_home
+#        - matrix_pinky_top
+#        - matrix_ring_bottom
+#        - matrix_ring_home
+#        - matrix_ring_top
+#        - matrix_middle_bottom
+#        - matrix_middle_home
+#        - matrix_middle_top
+#        - matrix_index_bottom
+#        - matrix_index_home
+#        - matrix_index_top
+#        - matrix_inner_bottom
+#        - matrix_inner_home
+#        - matrix_inner_top
+#        - thumb_first_only
+#        - thumb_second_only
+#        - thumb_third_only
+#        - thumb_fourth_only
+#      concavity: 50
+#      expand: 1.5
+#    - what: outline
+#      name: bottom
+#      operation: intersect
+#      fillet: 5
+#    - what: outline
+ #     name: _key_slot_negative
+  #    operation: subtract
+
+#  mounting_plate:
+#   - what: outline
+#      name: _mounting_plate
+#      extrude: 1.2
